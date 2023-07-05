@@ -1,0 +1,24 @@
+name: HowToWorkWith-test
+on: [push]
+jobs:
+  HowToWorkWith-test:
+    runs-on: ubuntu-20.04
+    steps:
+      - run : |
+        echo *** LOAD ***
+        sudo mkdir - p /home/HowToWorkWith/
+        sudo git clone https://github.com/Jinyeong-7369/MyRepository.git
+        cd /home/HowToWorkWith/
+        echo *** LOAD ***
+        
+        echo *** INSTALL ***
+        sudo apt-get update
+        sudo apt install python3-pip
+        
+        sudo apt install python3-pytest
+        
+        echo *** INSTALL ***
+        
+        echo *** TEST ***
+        pytest-3 test_Cal.py --disable-warnings
+        echo *** TEST ***
